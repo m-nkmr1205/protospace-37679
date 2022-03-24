@@ -27,15 +27,13 @@ before_action :check_user, only: [:edit, :update, :destroy]
   end
 
   def edit
-    @prototype = Prototype
   end
 
   def update
-    @prototype = Prototype
     if @prototype.update(prototype_params)
-       redirect_to prototype_path
+       redirect_to prototype_path(@prototype)
     else
-      render edit
+      render :edit
     end
   end
 
